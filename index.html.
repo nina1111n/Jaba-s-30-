@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#17000b">
+<title>JABA.exe — LEVEL 30 ❤️</title>
+<style>
+:root{--pink:#ff4f91;--red:#b60043;--gold:#ffd98a;--glass:rgba(255,255,255,.09)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:#fff;font-family:Arial,"Noto Sans Georgian",sans-serif;text-align:center;background:radial-gradient(circle at top,#650025 0,#280013 40%,#090008 100%);overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.16;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:35px 35px}
+main{width:min(92%,680px);margin:0 auto;padding:28px 0 60px;position:relative;z-index:2}
+.panel{background:var(--glass);border:1px solid rgba(255,255,255,.15);box-shadow:0 18px 55px #0007;backdrop-filter:blur(12px);border-radius:28px;padding:clamp(22px,5vw,38px);margin:18px 0}
+.eyebrow{letter-spacing:3px;text-transform:uppercase;font-size:12px;color:var(--gold)}
+h1{font-size:clamp(30px,8vw,52px);line-height:1.12;margin:14px 0}
+h2{font-size:clamp(23px,6vw,32px);margin:8px 0 16px}
+p{font-size:clamp(16px,4.2vw,20px);line-height:1.65}
+.small{font-size:14px;color:#f6cbd9}
+.big-emoji{font-size:58px;filter:drop-shadow(0 0 18px #ff4f9177)}
+button{font:inherit;font-weight:700;border:0;border-radius:16px;padding:15px 18px;cursor:pointer;transition:transform .18s,filter .18s;width:100%;margin:7px 0;min-height:52px}
+button:active{transform:scale(.98)}
+.primary{color:#fff;background:linear-gradient(120deg,#ff4f91,#c40050);box-shadow:0 8px 24px #ff1e7044}
+.secondary{background:#21151c;color:#fff;border:1px solid #ffffff25}
+.gold{background:linear-gradient(120deg,#ffe8a8,#e4a743);color:#381120}
+.hidden{display:none!important}
+#answer{font-size:20px;font-weight:700;min-height:28px;margin-top:15px;color:#ffe3ee}
+.progress{height:5px;background:#ffffff20;border-radius:9px;overflow:hidden;margin:18px 0}
+.progress span{display:block;width:0;height:100%;background:linear-gradient(90deg,#ff4f91,#ffd98a);transition:width .4s}
+.photos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}
+.photo{border:1px dashed #ff9abf99;border-radius:18px;min-height:145px;overflow:hidden;background:#16000b;display:flex;align-items:center;justify-content:center;position:relative}
+.photo img{width:100%;height:100%;min-height:145px;object-fit:cover;position:absolute;inset:0}
+.photo span{padding:18px;color:#f7bfd2;font-size:14px;z-index:1}
+.photo.has-image span{display:none}
+.photo input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;z-index:3}
+.letter{text-align:left;white-space:normal}
+.letter p{font-size:17px}
+.signature{font-size:25px!important;color:#ffb4d0;font-weight:bold;text-align:center;margin-top:25px}
+.falling{position:fixed;top:-50px;z-index:5;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{top:110vh;transform:translateX(35px) rotate(360deg)}}
+.pulse{animation:pulse 1.8s infinite}
+@keyframes pulse{50%{transform:scale(1.06);filter:drop-shadow(0 0 18px #ff4f91)}}
+footer{font-size:12px;color:#d7a8b9;padding:12px}
+@media(min-width:520px){.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}.actions button{margin:0}.photos{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+  <div class="eyebrow">A highly classified birthday mission</div>
+  <section class="panel" id="intro">
+    <div class="big-emoji pulse">💀❤️</div>
+    <div class="eyebrow">JABA.exe / SYSTEM UPDATE</div>
+    <h1>ჯაბა, დაგაჯდა<br>30 წლის ბუზი 😈</h1>
+    <p>სისტემამ აღმოაჩინა, რომ ერთი კონკრეტული ბიჭი დღეს <b>30-ე დონეზე</b> გადადის.</p>
+    <p class="small">გასაგრძელებლად საჭიროა საკუთარი თავის გადაჭარბებული სიყვარული და ცოლის კითხვებზე პასუხის გაცემის უნარი.</p>
+    <button class="primary" onclick="startMission()">გავაგრძელოთ, რა მეშინია 😂</button>
+  </section>
+
+  <section class="panel hidden" id="quiz">
+    <div class="eyebrow">სავალდებულო შემოწმება / 01</div>
+    <div class="progress"><span id="bar"></span></div>
+    <h2 id="question">კითხვა</h2>
+    <div id="choices"></div>
+    <div id="answer" aria-live="polite"></div>
+    <button id="next" class="primary hidden" onclick="nextQuestion()">შემდეგი გამოცდა ➜</button>
+  </section>
+
+  <section class="panel hidden" id="birthday">
+    <div class="big-emoji">🎂🎮✨</div>
+    <div class="eyebrow">Update complete</div>
+    <h1>LEVEL 30<br>UNLOCKED!</h1>
+    <p>გილოცავ დაბადების დღეს, ჯაბა! 🥳</p>
+    <p>30 წელი გამოცდილება, ათასი ხასიათი და ერთი ნინი, რომელსაც შენი თავი მაინც ყველაზე მეტად უყვარს. 😂❤️</p>
+    <button class="primary" onclick="showMemories()">გახსენი ჩვენი მოგონებები 📸</button>
+  </section>
+
+  <section class="panel hidden" id="memories">
+    <div class="eyebrow">ჩვენი პატარა სამყარო</div>
+    <h2>ჩვენი ისტორია ❤️</h2>
+    <p>აქ ჩასვი თქვენი საყვარელი ფოტოები — თითოეულ ჩარჩოს დააჭირე და აირჩიე ფოტო ტელეფონიდან.</p>
+    <div class="photos">
+      <label class="photo"><span>📸 ჩვენი ფოტო №1<br><small>პირველი მოგონება</small></span><input type="file" accept="image/*" onchange="loadPhoto(this)"></label>
+      <label class="photo"><span>📸 ჩვენი ფოტო №2<br><small>ჩვენ ორნი</small></span><input type="file" accept="image/*" onchange="loadPhoto(this)"></label>
+      <label class="photo"><span>📸 ჩვენი ფოტო №3<br><small>ჩვენი ოჯახი</small></span><input type="file" accept="image/*" onchange="loadPhoto(this)"></label>
+      <label class="photo"><span>📸 ჩვენი ფოტო №4<br><small>საყვარელი დღე</small></span><input type="file" accept="image/*" onchange="loadPhoto(this)"></label>
+      <label class="photo"><span>📸 ჩვენი ფოტო №5<br><small>ჩვენი ბიჭები</small></span><input type="file" accept="image/*" onchange="loadPhoto(this)"></label>
+      <label class="photo"><span>📸 ჩვენი ფოტო №6<br><small>კიდევ ერთი „ჩვენ“</small></span><input type="file" accept="image/*" onchange="loadPhoto(this)"></label>
+    </div>
+    <p class="small">შენიშვნა: არჩეული ფოტოები ამ მოწყობილობაზე გამოჩნდება. საიტის ლინკით გასაზიარებლად ფოტოები ჯერ თავად HTML ფაილში უნდა ჩასვა ან ცალკე ატვირთო.</p>
+    <button class="primary" onclick="showLetter()">და ბოლოს… ერთი რამ უნდა გითხრა 💌</button>
+  </section>
+
+  <section class="panel hidden" id="letter">
+    <div class="big-emoji">❤️‍🔥</div>
+    <div class="eyebrow">პირადი შეტყობინება / მხოლოდ ჯაბასთვის</div>
+    <h2>ჩემს საყვარელ ადამიანს…</h2>
+    <div class="letter">
+      <p>ჯაბა, გილოცავ 30 წლის იუბილეს, ჩემო სიყვარულო. ❤️</p>
+      <p>ხანდახან იმდენ რამეს ვამბობთ სიცილით, ვკამათობთ, ვეხუმრებით ერთმანეთს და ყოველდღიურობაში ისე ვეფლობით, რომ ყველაზე მნიშვნელოვანი სიტყვები სათქმელად გვრჩება. ამიტომ დღეს მინდა, ეს სიტყვები შენამდე აუცილებლად მოვიდეს.</p>
+      <p>2015 წლიდან მოყოლებული, ჩვენი ამბავი იმდენ მოგონებას, ცვლილებასა და გამოცდილებას იტევს… და როცა უკან ვიყურები, მიხარია, რომ ამ გზის ასეთი დიდი ნაწილი ერთად გავიარეთ. ჩვენ უბრალოდ ორი ადამიანი კი არ ვართ — ჩვენ ჩვენი პატარა სამყარო შევქმენით.</p>
+      <p>ყველაზე ძვირფასი საჩუქარი, რაც ერთად გვაქვს, ჩვენი ოჯახია და ჩვენი ბიჭები. როცა მათ ვუყურებ კიდევ ერთხელ ვხვდები, რამხელა მნიშვნელობა აქვს ჩვენს ერთად ყოფნას და იმ ცხოვრებას, რომელსაც ყოველდღე ვაშენებთ.</p>
+      <p>არ გპირდები, რომ ყოველთვის იდეალური ვიქნები, ან რომ ჩვენი ყოველი დღე ზღაპარს დაემსგავსება. მაგრამ მინდა იცოდე: ჩემს გულში შენთვის განსაკუთრებული ადგილი გაქვს — იმ ადამიანისთვის, ვისთანაც ამდენი რამ მაკავშირებს, ვისთანაც მოგონებები მაქვს და ვისთანაც კიდევ ბევრი წლის ისტორიის დაწერა მინდა.</p>
+      <p>გისურვებ ჯანმრთელობას, სიმშვიდეს, გამძლეობას, ბევრ ბედნიერ დღეს და იმას, რომ შენი ოცნებები ნელ-ნელა რეალობად იქცეს. მინდა, ხშირად გქონდეს მიზეზი სიცილისთვის, იამაყო საკუთარი თავით და არასდროს დაგავიწყდეს, რამდენად ძვირფასი ხარ ჩვენთვის.</p>
+      <p>30 წლის გახდი, ბატონო ჯაბა… ასე რომ, ოფიციალურად კიდევ უფრო მეტი პასუხისმგებლობა გეკისრება: უნდა იყო ჩემი საყვარელი ადამიანი, ჩვენი ბიჭების მაგარი მამა და ჩემი ნერვების მთავარი მომშლელი კიდევ მრავალი, მრავალი წელი. 😂❤️</p>
+      <p>გილოცავ დაბადების დღეს. მადლობა ჩვენი ისტორიისთვის, ჩვენი ოჯახისთვის და იმ პატარა თუ დიდი მომენტებისთვის, რომლებიც მხოლოდ ჩვენ გვესმის.</p>
+      <p><b>მიყვარხარ — გუშინ, დღეს, შენს 30 წლის ასაკშიც და ყველა იმ ხვალინდელ დღეშიც, რომელიც ერთად გველოდება.</b></p>
+    </div>
+    <p class="signature">შენი ნინი ❤️</p>
+    <div class="big-emoji">💋💋💋</div>
+    <button class="gold" onclick="celebrate()">კიდევ ერთხელ — გილოცავ, ჩემო ადამიანო! 🎉</button>
+  </section>
+  <footer>Made with love, mischief & a tiny bit of black magic 💀❤️</footer>
+</main>
+<script>
+const questions=[
+ {q:"1. ჯაბა, დღეს რამდენი წლის ხარ?",a:["18 — უბრალოდ 12 წლიანი გამოცდილებით 😂","30! კაცი болсон! 🎂","ასაკი ცოლს არ ეკითხებიან 💀"],good:1,replies:["კარგი მცდელობა, მაგრამ პასპორტს თავისი აზრი აქვს. 🤣","სწორია! LEVEL 30 UNLOCKED 🎮❤️","პასუხი მიღებულია… საეჭვო თავდაცვაა. 😂"]},
+ {q:"2. ვინ არის სახლში მთავარი?",a:["მე, რა თქმა უნდა 😎","ნინი… და ამას სიამოვნებით ვაღიარებ ❤️","ჩვენი ბიჭები არიან 😂"],good:1,replies:["სისტემური შეცდომა. სცადე თავიდან. 💀","ბრძნული პასუხია. გადარჩი კიდევ ერთი დღით. 😂❤️","ბიჭები მალე მართლა დაიკავებენ ტახტს. 👑"]},
+ {q:"3. თუ ნინი გეუბნება „არაფერი მჭირს“, რას აკეთებ?",a:["მშვიდად ვაგრძელებ ცხოვრებას 💀","ვკითხულობ, ვუსმენ და ვეხუტები ❤️","ვიმალები სხვა ოთახში 🏃"],good:1,replies:["შენ თვითონ ირჩევ რთულ გზას. 😂","აი, ეს უკვე 30 წლის კაცის სიბრძნეა. 🥹","სადამდე გაიქცევი, ჯაბა? 🤣"]},
+ {q:"4. კიდევ რამდენი წელი უნდა გიყვარდეს ნინი?",a:["კიდევ ერთი კვირა, მერე ვნახოთ 😂","100 წელი მაინც — და მეტიც ❤️","სანამ Wi‑Fi გვაქვს 📶"],good:1,replies:["პასუხი უარყოფილია. გასაჩივრება შეუძლებელია. 💀","სწორია. კონტრაქტი უვადოა. ❤️","რომანტიკისთვის ინტერნეტი აუცილებელი არ არის, ბატონო. 😂"]},
+ {q:"5. მზად ხარ, რომ ეს დაბადების დღე არ დაგავიწყდეს?",a:["კი, და საჩუქარიც მზად მაქვს 🎁","საიტს ვხურავ და გავრბივარ 🏃","ნინი, ეს შენ გააკეთე? 🥹"],good:0,replies:["საჩუქრის განყოფილება ახლა გაიხსნება… იმედია. 🤣❤️","გაქცევის ღილაკი არ არსებობს, ჯაბა. 💀","კი, მე და ნინიმ მოვაწყვეთ. ახლა კი დროა, გული გაგითბოს. ❤️"]}
+];
+let index=0;
+function show(id){document.querySelectorAll("main > section").forEach(s=>s.classList.add("hidden"));document.getElementById(id).classList.remove("hidden");window.scrollTo({top:0,behavior:"smooth"})}
+function startMission(){show("quiz");renderQuestion()}
+function renderQuestion(){let q=questions[index];document.getElementById("question").textContent=q.q;document.getElementById("bar").style.width=(index/questions.length*100)+"%";document.getElementById("answer").textContent="";document.getElementById("next").classList.add("hidden");let choices=document.getElementById("choices");choices.innerHTML="";q.a.forEach((a,i)=>{let b=document.createElement("button");b.className=i===q.good?"primary":"secondary";b.textContent=a;b.onclick=()=>choose(i);choices.appendChild(b)})}
+function choose(i){let q=questions[index];document.getElementById("answer").textContent=q.replies[i];document.querySelectorAll("#choices button").forEach(b=>b.disabled=true);document.getElementById("next").classList.remove("hidden");rain(i===q.good?["❤️","💗","✨"]:["💀","😂"])}
+function nextQuestion(){index++;if(index<questions.length)renderQuestion();else{show("birthday");rain(["🎉","❤️","🎂","✨"])}}
+function showMemories(){show("memories")}
+function showLetter(){show("letter");rain(["❤️","💗","💖","✨"])}
+function loadPhoto(input){if(!input.files||!input.files[0])return;const file=input.files[0];if(!file.type.startsWith("image/"))return;const url=URL.createObjectURL(file);const box=input.parentElement;let img=box.querySelector("img");if(!img){img=document.createElement("img");box.appendChild(img)}img.src=url;box.classList.add("has-image")}
+function rain(symbols){for(let i=0;i<24;i++){let e=document.createElement("div");e.className="falling";e.textContent=symbols[Math.floor(Math.random()*symbols.length)];e.style.left=Math.random()*100+"vw";e.style.fontSize=(20+Math.random()*26)+"px";e.style.animationDuration=(2.5+Math.random()*3)+"s";document.body.appendChild(e);setTimeout(()=>e.remove(),6000)}}
+function celebrate(){rain(["🎉","🎂","❤️","💖","✨","🥳"]);alert("გილოცავ 30 წლის იუბილეს, ჯაბა! ❤️ სიყვარულით — ნინი")}
+</script>
+</body>
+</html>
